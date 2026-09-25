@@ -1,0 +1,28 @@
+{
+  "method": "Built-in image_gen__imagegen, exactly two calls in one Promise.allSettled parallel batch; referenced_image_paths contained inspected logo source, transparent_background:false for both. No retries or variants.",
+  "logo_reference": "/workspace/sites/care-ride/public/care-ride-logo.png",
+  "scenes": [
+    {
+      "name": "journey",
+      "path": "/workspace/scratch/6ba97be32cd4/generated_images/exec-1f91591e-b161-4f93-80c5-07f34f577f69.png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGBA",
+      "prompt": "Use case: photorealistic-natural\nAsset type: full-bleed wide website hero photograph, 16:9 composition.\nPrimary request: Create an authentic, professional non-emergency medical transportation photograph for Care Ride Transportation serving Long Island and NYC.\nInput image: The supplied image is a LOGO REFERENCE ONLY. Adapt only its upper red-and-sky-blue medical/care symbol and the words \"CARE RIDE\" above \"TRANSPORTATION CORP\" into a realistic, modestly sized vinyl door decal. Remove the reference's black/white rectangular background, and OMIT its entire phone-number line. Do not add any phone digits or extra lettering.\nScene: An ordinary, clean silver midsize four-door sedan driving safely along a leafy Long Island suburban roadway in natural daylight. Three-quarter side view, driver seated correctly behind the steering wheel and looking ahead. Visible front and rear doors, realistic tires and road contact; a subtle sense of motion in the leafy background. Grounded everyday car, not luxury.\nComposition: Wide landscape photograph, vehicle placed center-right, visible branded door, ample crop width around the car and calm leafy environment at left. Eye-level professional editorial photography, believable reflections and natural color, genuine materials and proportions.\nExact decal wording only: \"CARE RIDE\" and \"TRANSPORTATION CORP\".\nConstraints: Full-bleed photograph, no interface, captions, banner, phone number, watermark or invented signage. No limousine, ambulance, emergency lights, extravagant car, medical equipment, posed glamour or dramatic luxury advertising. No claim of depicting an actual company vehicle. Warm, credible, local transport service.",
+      "inspection": "Ordinary silver sedan, driver visible seated, correct Care Ride logo without phone digits. Unexpected feathered transparent perimeter (alpha extrema 0 to 253) means it is not full-bleed as generated."
+    },
+    {
+      "name": "pickup",
+      "path": "/workspace/scratch/6ba97be32cd4/generated_images/exec-4b326e57-d9de-4ef9-a857-bb7e6a38c762.png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "prompt": "Use case: photorealistic-natural\nAsset type: full-bleed wide website hero photograph, 16:9 composition.\nPrimary request: Create a warm, dignified non-emergency medical transportation pickup photograph for Care Ride Transportation serving Long Island and NYC.\nInput image: The supplied image is a LOGO REFERENCE ONLY. Adapt only its upper red-and-sky-blue medical/care symbol and the words \"CARE RIDE\" above \"TRANSPORTATION CORP\" into a realistic, modestly sized vinyl decal on the closed front passenger door. Remove the reference's black/white rectangular background, and OMIT its entire phone-number line. Do not add any phone digits or extra lettering.\nScene: Ordinary white compact or midsize SUV stopped safely at a curb outside a modest, accessible outpatient clinic in a leafy Long Island neighborhood. The rear passenger door is open. A professional driver wearing a neat navy polo stands on the sidewalk and gently offers a hand/forearm to an ambulatory older adult passenger who is naturally beginning to enter the rear seat. Both have calm, natural expressions and believable posture, hands and limbs. This is a respectful moment of everyday assistance. The clinic has an accessible level walkway and a simple entrance; no readable clinic sign is necessary.\nComposition: Wide landscape, three-quarter passenger-side view showing the ordinary SUV, clear door decal, driver and older passenger; enough surrounding space for useful cropping. Soft daylight, natural skin texture, balanced exposure, candid editorial photography, grounded and credible.\nExact decal wording only: \"CARE RIDE\" and \"TRANSPORTATION CORP\".\nConstraints: Full-bleed photograph, no interface, captions, banner, phone number, watermark, other logos or invented text. No wheelchair lift, stretcher, ambulance, medical equipment, emergency lighting, luxury limousine or glamour treatment. Do not depict lifting the passenger bodily. No claim of depicting actual company staff or patients.",
+      "inspection": "Full-bleed natural pickup scene with ordinary white SUV, navy-polo driver assisting ambulatory older passenger, visible proper Care Ride decal without phone digits. Scene meets requested visual brief."
+    }
+  ]
+}

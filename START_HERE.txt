@@ -1,0 +1,105 @@
+CARE RIDE TRANSPORTATION — DEVELOPER HANDOFF
+Export date: September 25, 2026
+Live reference: https://care-ride.ali-mohsin12340.chatgpt.site
+Published version: 3
+Source commit: 0fd891fc8d10bddbc509fc9f52f6cdc0cf8cd822
+
+START HERE
+This is the editable website source, not a WordPress theme or a single HTML
+file. Give this entire ZIP to the developer. Extract it before installing.
+The live website has not been changed or transferred by creating this export.
+
+INCLUDED
+All main pages, service-detail pages, logo and vehicle images, local fonts,
+interactive geographic coverage map, loading animation, responsive styling,
+callback form and server API, staff inbox, database schema/migration,
+dependency lockfile, build scripts, and existing third-party license notices.
+The source snapshot matches published version 3. MANIFEST.json lists SHA-256
+checksums for all exported files other than the manifest itself.
+
+STACK AND LOCAL SETUP
+React 19 / TypeScript, Vinext (Next-compatible application running on Vite),
+Cloudflare Workers, Cloudflare D1, Drizzle, and Tailwind CSS.
+Use Node.js 22.13.0 or newer and pnpm 11.25.0 (the pinned package manager).
+From the extracted care-ride-website folder:
+
+  pnpm install --frozen-lockfile
+  pnpm dev
+
+The portable dev script selects port 5173. Use the address printed by the
+server. The exported checkout has no machine-specific execution profile;
+scripts/execution-profile.mjs defaults to portable in this case.
+
+  pnpm exec tsc --noEmit --incremental false
+  pnpm build
+
+The existing source passed TypeScript and the managed Cloudflare-compatible
+build before version 3 was published. This source ZIP has been integrity-
+checked; a fresh installation on another machine has not been tested.
+
+HOSTING AND DATABASE
+This is a server-backed app, not an upload-and-open static HTML site.
+The current host supplies a Cloudflare D1 binding named DB. Database structure
+is in db/schema.ts and drizzle/0000_special_iron_patriot.sql. A new host needs
+a database provisioned and this migration applied before the callback form
+can save requests. No production records or local test records are included.
+The all-zero database ID in vite.config.ts is a local placeholder, not a
+production database. Configure real bindings for the destination environment.
+Keep the migration unchanged when applying it to a fresh database.
+
+The original .openai/hosting.json identifies the existing Sites project.
+It is retained as source context, not a credential or permission grant.
+Changing hosting requires adapting the deployment configuration and bindings;
+pnpm build alone does not connect a new hosting account or domain. A generic
+shared PHP/WordPress hosting plan cannot run this project unchanged.
+
+STAFF AUTHENTICATION — REQUIRED FOR A MOVE
+app/chatgpt-auth.ts relies on identity headers supplied by the current Sites
+trusted authentication gateway. Outside that gateway, replace or securely
+integrate this authentication before exposing /staff or the callback API.
+Never trust identity headers supplied directly by public visitors.
+lib/staff.ts has an explicit owner email allowlist. Retain server-side
+protection for every API read, update, and deletion. The portable local
+sign-in mock uses a test identity, which is intentionally not a production
+staff member. Real staff access needs the proper hosted authentication.
+Do not make the inbox public to get past a sign-in problem.
+
+FEATURE NOTES / REMAINING BUSINESS WORK
+- Callback submissions request a call; they do not reserve a ride.
+- Email/SMS notifications are not configured. Staff must review the inbox.
+- The Privacy page currently covers callback requests only. The owner plans
+  to provide a fuller policy later for RingCentral SMS registration.
+- The current consent checkbox authorizes calls only. SMS terms, a suitable
+  consent flow, consent records, and RingCentral approval remain future work.
+- Hero scenes are AI-created illustrative images with animated pans and
+  crossfades, not footage of real company vehicles or patients.
+- The map uses local NYS ITS geographic boundary data. Credits appear on the
+  site and in lib/coverage-geometry.ts. Route lines are illustrative.
+- Coverage is all Long Island plus Manhattan, Queens, Brooklyn, and the Bronx,
+  as confirmed by the owner. Individual trips require confirmation.
+- Native page links and the native mobile menu intentionally remain usable
+  without JavaScript. Preserve that behavior when making changes.
+
+WHERE TO EDIT
+app/page.tsx                    Homepage
+app/about/page.tsx              About
+app/services/                  Services and detail pages
+app/service-area/page.tsx       Coverage page
+components/coverage-map.tsx     Map controls and coverage copy
+lib/coverage-geometry.ts        Local geographic shapes
+components/hero-journey.tsx     AI-image scene animation
+components/site-motion.tsx      Logo loading transitions
+components/site-chrome.tsx      Header, navigation, footer
+app/globals.css                 Design and responsive styles
+lib/content.ts                 Service descriptions and FAQ
+app/privacy/page.tsx            Current callback privacy text
+components/callback-form.tsx    Callback form
+app/api/callback-requests/      Callback API
+app/staff/                      Staff inbox page
+public/                        Logos, images, local fonts, favicon
+
+EXCLUDED
+Git history, installed dependencies, build caches, compiled bundles,
+credentials, environment-secret files, accounts, domain ownership,
+production database contents, and local test data. Hosting access and any
+production data transfer must be handled separately by the owner.
